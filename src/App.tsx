@@ -61,6 +61,12 @@ export default function App() {
       link: "https://lexora-ai-gray.vercel.app/",
       color: "bg-[#6C5CE7]",
       description: "An intelligent, adaptive, and highly responsive generative AI assistant companion."
+    },
+    {
+      name: "Massive Multiplayer Laser Tag",
+      link: "https://massive-multiplayer-laser-tag-omega.vercel.app/",
+      color: "bg-[#00D8D6]",
+      description: "An exhilarating, real-time multiplayer laser tag game built with dynamic physics and competitive mechanics."
     }
   ];
 
