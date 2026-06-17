@@ -187,6 +187,47 @@ export default function App() {
                 </motion.a>
               ))}
             </div>
+
+            {/* Coming Soon Projects */}
+            <div className="flex flex-col gap-6 mt-12 bg-[#FFD600]/10 border-4 border-dashed border-black p-6 md:p-8 rounded-[2.5rem]">
+              <div className="flex items-center gap-4">
+                <h3 className="text-xl font-black uppercase tracking-tight flex items-center gap-2 text-[#FF8A00]">
+                  <span className="w-3.5 h-3.5 bg-[#FF8A00] rounded-full animate-ping"></span>
+                  Coming Soon 🛠️
+                </h3>
+                <div className="h-[2px] flex-grow bg-black/20"></div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="group relative overflow-hidden bg-white border-4 border-black p-6 rounded-[2rem] shadow-[6px_6px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <Code2 className="w-16 h-16" />
+                  </div>
+                  <div className="relative z-10 flex flex-col h-full justify-between gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-[10px] font-black uppercase bg-[#FFD600] px-2 py-0.5 border border-black rounded-md">Prototype</span>
+                      </div>
+                      <h4 className="text-lg md:text-xl font-black uppercase leading-none tracking-tight mb-2">
+                        Interactive Car Showcase
+                      </h4>
+                      <p className="font-bold text-gray-600 text-xs leading-relaxed">
+                        A futuristic interactive vehicle experience examining custom controls, dynamic styling, and immersive WebGL physics-based mechanics.
+                      </p>
+                    </div>
+                    
+                    <a
+                      href="https://car-seven-peach.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full bg-black hover:bg-[#FFD600] hover:text-black text-white font-black py-2.5 px-4 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
+                    >
+                      <span>Preview Work <ExternalLink className="w-3.5 h-3.5" /></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.section>
         </div>
 
