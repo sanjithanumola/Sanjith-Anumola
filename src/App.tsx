@@ -3,94 +3,114 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion } from "motion/react";
-import { Instagram, MapPin, Code2, Rocket, ExternalLink, Mail, Github, Globe, Phone } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { 
+  Instagram, MapPin, Code2, Rocket, ExternalLink, Mail, 
+  Github, Globe, Phone, Bot, Gamepad2, Sparkles, LayoutGrid 
+} from "lucide-react";
 
 export default function App() {
+  const [activeCategory, setActiveCategory] = useState("all");
+
   const projects = [
     {
       name: "7pace Time Tracker for Azure DevOps",
       link: "https://7pace-time-tracker-for-azure-dev-op.vercel.app/",
       color: "bg-[#00E676]",
-      description: "A professional time tracking solution integrated with Azure DevOps."
+      description: "A professional time tracking solution integrated with Azure DevOps.",
+      category: "apps"
     },
     {
       name: "Smart Notes",
       link: "https://smart-notes-ai-ecru.vercel.app/",
       color: "bg-[#FFD600]",
-      description: "An AI-powered note-taking application for smarter productivity."
+      description: "An AI-powered note-taking application for smarter productivity.",
+      category: "ai"
     },
     {
       name: "Daily Health Guardian",
       link: "https://daily-health-guardian.vercel.app/",
       color: "bg-[#00C2FF]",
-      description: "Your personal companion for tracking and improving daily health habits."
+      description: "Your personal companion for tracking and improving daily health habits.",
+      category: "apps"
     },
     {
       name: "Tic Tac Toe",
       link: "https://tic-tac-toe-liart-alpha-24.vercel.app/",
       color: "bg-[#FF3E81]",
-      description: "A fun and interactive classic Tic Tac Toe game with a modern touch."
+      description: "A fun and interactive classic Tic Tac Toe game with a modern touch.",
+      category: "games"
     },
     {
       name: "Red Pulse",
       link: "https://red-pulse-news.vercel.app/",
       color: "bg-[#FF5252]",
-      description: "A global intelligence and news platform for staying updated with the world."
+      description: "A global intelligence and news platform for staying updated with the world.",
+      category: "apps"
     },
     {
       name: "Interactive Periodic Table",
       link: "https://periodic-table-blond.vercel.app/",
       color: "bg-[#BD00FF]",
-      description: "An educational and beautifully interactive periodic table showcasing properties of all chemical elements."
+      description: "An educational and beautifully interactive periodic table showcasing properties of all chemical elements.",
+      category: "apps"
     },
     {
       name: "Tuggable Lamp",
       link: "https://lamp-ebon.vercel.app/",
       color: "bg-[#FF9100]",
-      description: "A playfully realistic interactive hanging lamp experience utilizing physics-based chain interactions."
+      description: "A playfully realistic interactive hanging lamp experience utilizing physics-based chain interactions.",
+      category: "games"
     },
     {
       name: "House Build Game",
       link: "https://house-build-game.vercel.app/",
       color: "bg-[#05C46B]",
-      description: "A fun, block-building and structural construction game with interactive mechanics."
+      description: "A fun, block-building and structural construction game with interactive mechanics.",
+      category: "games"
     },
     {
       name: "Lexora AI",
       link: "https://lexora-ai-gray.vercel.app/",
       color: "bg-[#6C5CE7]",
-      description: "An intelligent, adaptive, and highly responsive generative AI assistant companion."
+      description: "An intelligent, adaptive, and highly responsive generative AI assistant companion.",
+      category: "ai"
     },
     {
       name: "Massive Multiplayer Laser Tag",
       link: "https://massive-multiplayer-laser-tag-omega.vercel.app/",
       color: "bg-[#00D8D6]",
-      description: "An exhilarating, real-time multiplayer laser tag game built with dynamic physics and competitive mechanics."
+      description: "An exhilarating, real-time multiplayer laser tag game built with dynamic physics and competitive mechanics.",
+      category: "games"
     },
     {
       name: "Gemini Slingshot",
       link: "https://slingshot-dun-kappa.vercel.app/",
       color: "bg-[#FF1F8E]",
-      description: "An interactive, camera-controlled experience combining real-time hand-tracking computer vision with elastic, physics-based slingshot controls."
+      description: "An interactive, camera-controlled experience combining real-time hand-tracking computer vision with elastic, physics-based slingshot controls.",
+      category: "ai"
     },
     {
       name: "Lyria Rhythm",
       link: "https://rhythm-ruddy.vercel.app/",
       color: "bg-[#8338EC]",
-      description: "A dynamic and beautifully interactive music-making experience featuring captivating rhythm layouts and sound mechanics."
+      description: "A dynamic and beautifully interactive music-making experience featuring captivating rhythm layouts and sound mechanics.",
+      category: "games"
     },
     {
       name: "Run Chase!",
       link: "https://cricket-rho-hazel.vercel.app/",
       color: "bg-[#4CAF50]",
-      description: "An interactive, retro-styled arcade cricket run-chasing game featuring exciting physics-based hitting mechanics."
+      description: "An interactive, retro-styled arcade cricket run-chasing game featuring exciting physics-based hitting mechanics.",
+      category: "games"
     },
     {
       name: "Kinetic Canvas",
       link: "https://kinetic-ashy.vercel.app/",
       color: "bg-[#FF5E57]",
-      description: "An interactive visual sandbox exploring dynamic physics, organic particle motion, and kinetic gravity interactions."
+      description: "An interactive visual sandbox exploring dynamic physics, organic particle motion, and kinetic gravity interactions.",
+      category: "games"
     }
   ];
 
@@ -149,43 +169,125 @@ export default function App() {
             transition={{ delay: 0.3 }}
             className="flex flex-col gap-8"
           >
-            <div className="flex items-center gap-4">
-              <h3 className="text-sm uppercase tracking-widest font-black flex items-center gap-2">
-                <span className="w-4 h-4 bg-[#FF3E81] rounded-full"></span>
-                My Creations & Projects
-              </h3>
-              <div className="h-[4px] flex-grow bg-black rounded-full"></div>
+            {/* Header with Title & Divider */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <span className="w-4.5 h-4.5 bg-[#FF3E81] rounded-full border-2 border-black"></span>
+                <h3 className="text-2xl font-black uppercase tracking-tight">
+                  My Creations
+                </h3>
+              </div>
+              <div className="h-[4px] flex-grow bg-black rounded-full hidden sm:block"></div>
             </div>
-            
-            <div className="grid grid-cols-1 gap-8">
-              {projects.map((project, idx) => (
-                <motion.a
-                  key={project.name}
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                  className={`group relative overflow-hidden border-4 border-black p-8 rounded-[2.5rem] shadow-[10px_10px_0_0_#000] hover:shadow-[4px_4px_0_0_#000] hover:translate-x-1 hover:translate-y-1 transition-all ${project.color}`}
-                >
-                  <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                     <Rocket className="w-24 h-24 -rotate-12" />
-                  </div>
-                  
-                  <div className="relative z-10 flex flex-col gap-2">
-                    <h4 className="text-2xl md:text-3xl font-black uppercase leading-none tracking-tighter mb-2">
-                      {project.name}
-                    </h4>
-                    <p className="font-bold opacity-80 text-lg leading-snug max-w-xl">
-                      {project.description}
-                    </p>
-                    <div className="mt-6 flex items-center gap-2 bg-white text-black self-start px-4 py-2 border-3 border-black rounded-xl font-black text-xs uppercase tracking-widest group-hover:bg-black group-hover:text-white transition-colors">
-                      View Live Project <ExternalLink className="w-4 h-4" />
+
+            {/* Category Navigation Tabs */}
+            <div className="flex flex-wrap gap-3 p-1">
+              {[
+                { id: "all", label: "All Projects", icon: LayoutGrid, activeColor: "bg-[#FF3E81] text-white shadow-[2px_2px_0_0_#000] translate-x-[2px] translate-y-[2px]" },
+                { id: "ai", label: "AI Tools 🤖", icon: Bot, activeColor: "bg-[#6C5CE7] text-white shadow-[2px_2px_0_0_#000] translate-x-[2px] translate-y-[2px]" },
+                { id: "games", label: "Games & Fun 🎮", icon: Gamepad2, activeColor: "bg-[#00D8D6] text-black shadow-[2px_2px_0_0_#000] translate-x-[2px] translate-y-[2px]" },
+                { id: "apps", label: "Web Apps 🌐", icon: Sparkles, activeColor: "bg-[#FFD600] text-black shadow-[2px_2px_0_0_#000] translate-x-[2px] translate-y-[2px]" }
+              ].map((tab) => {
+                const Icon = tab.icon;
+                const isActive = activeCategory === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveCategory(tab.id)}
+                    className={`flex items-center gap-2 px-5 py-3 border-3 border-black rounded-2xl font-black uppercase tracking-wider text-xs transition-all cursor-pointer ${
+                      isActive 
+                        ? `${tab.activeColor}` 
+                        : "bg-white text-black hover:bg-gray-50 shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px]"
+                    }`}
+                  >
+                    <Icon className="w-4 h-4 stroke-[2.5]" />
+                    {tab.label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Project List / Grouped Sections */}
+            <div className="flex flex-col gap-12">
+              {[
+                {
+                  id: "ai",
+                  title: "AI Tools & Intelligent Apps",
+                  icon: Bot,
+                  color: "text-[#6C5CE7]",
+                  borderColor: "border-[#6C5CE7]",
+                  badgeBg: "bg-[#6C5CE7]/15 text-[#6C5CE7]",
+                  items: projects.filter(p => p.category === "ai")
+                },
+                {
+                  id: "games",
+                  title: "Games & Physics Playgrounds",
+                  icon: Gamepad2,
+                  color: "text-[#FF1F8E]",
+                  borderColor: "border-[#FF1F8E]",
+                  badgeBg: "bg-[#FF1F8E]/15 text-[#FF1F8E]",
+                  items: projects.filter(p => p.category === "games")
+                },
+                {
+                  id: "apps",
+                  title: "Web Applications & Utilities",
+                  icon: Sparkles,
+                  color: "text-[#00C2FF]",
+                  borderColor: "border-[#00C2FF]",
+                  badgeBg: "bg-[#00C2FF]/15 text-[#00C2FF]",
+                  items: projects.filter(p => p.category === "apps")
+                }
+              ]
+                .filter(sec => activeCategory === "all" || sec.id === activeCategory)
+                .map((section) => (
+                  <div key={section.id} className="flex flex-col gap-6">
+                    {/* Sub Section Header */}
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2 px-4 py-2 border-3 border-black rounded-xl font-black uppercase text-xs tracking-wider bg-white shadow-[4px_4px_0_0_#000]">
+                        <section.icon className={`w-4 h-4 ${section.color} stroke-[3]`} />
+                        <span>{section.title}</span>
+                        <span className={`ml-2 px-2 py-0.5 rounded-md text-[10px] font-black ${section.badgeBg}`}>
+                          {section.items.length}
+                        </span>
+                      </div>
+                      <div className="h-[2px] flex-grow bg-black/15"></div>
+                    </div>
+
+                    {/* Section Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {section.items.map((project, idx) => (
+                        <motion.a
+                          key={project.name}
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          initial={{ opacity: 0, y: 15 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: idx * 0.05 }}
+                          className={`group relative overflow-hidden border-4 border-black p-6 rounded-[2rem] shadow-[6px_6px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-1 hover:translate-y-1 transition-all flex flex-col justify-between min-h-[190px] ${project.color}`}
+                        >
+                          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <Rocket className="w-16 h-16 -rotate-12" />
+                          </div>
+
+                          <div className="relative z-10 flex flex-col gap-1.5">
+                            <h4 className="text-xl md:text-2xl font-black uppercase leading-tight tracking-tight mb-1">
+                              {project.name}
+                            </h4>
+                            <p className="font-bold opacity-85 text-xs leading-relaxed max-w-sm">
+                              {project.description}
+                            </p>
+                          </div>
+
+                          <div className="relative z-10 mt-6 flex items-center gap-2 bg-white text-black self-start px-3.5 py-2 border-3 border-black rounded-xl font-black text-[10px] uppercase tracking-widest group-hover:bg-black group-hover:text-white transition-colors">
+                            Launch Project <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
+                          </div>
+                        </motion.a>
+                      ))}
                     </div>
                   </div>
-                </motion.a>
-              ))}
+                ))}
             </div>
 
             {/* Coming Soon Projects */}
