@@ -328,6 +328,34 @@ export default function App() {
                     </a>
                   </div>
                 </div>
+
+                <div className="group relative overflow-hidden bg-white border-4 border-black p-6 rounded-[2rem] shadow-[6px_6px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <Bot className="w-16 h-16" />
+                  </div>
+                  <div className="relative z-10 flex flex-col h-full justify-between gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-[10px] font-black uppercase bg-[#6C5CE7] text-white px-2 py-0.5 border border-black rounded-md">AI Helper</span>
+                      </div>
+                      <h4 className="text-lg md:text-xl font-black uppercase leading-none tracking-tight mb-2">
+                        Mail Genius AI
+                      </h4>
+                      <p className="font-bold text-gray-600 text-xs leading-relaxed">
+                        An intelligent email assistant helper designed to craft perfect, contextual replies and manage correspondence seamlessly.
+                      </p>
+                    </div>
+                    
+                    <a
+                      href="https://mail-genius-ai.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full bg-black hover:bg-[#6C5CE7] hover:text-white text-white font-black py-2.5 px-4 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
+                    >
+                      <span>Preview Work <ExternalLink className="w-3.5 h-3.5" /></span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.section>
