@@ -347,7 +347,7 @@ export default function App() {
                     </div>
                     
                     <a
-                      href="https://mail-genius-ai.vercel.app/"
+                      href="https://mail-gules-six.vercel.app/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2 w-full bg-black hover:bg-[#6C5CE7] hover:text-white text-white font-black py-2.5 px-4 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
