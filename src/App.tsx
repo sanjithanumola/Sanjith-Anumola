@@ -111,6 +111,13 @@ export default function App() {
       color: "bg-[#FF5E57]",
       description: "An interactive visual sandbox exploring dynamic physics, organic particle motion, and kinetic gravity interactions.",
       category: "games"
+    },
+    {
+      name: "X-Ray Vision Portal",
+      link: "https://xray2-five.vercel.app/",
+      color: "bg-[#00E5FF]",
+      description: "An interactive visual simulation and medical imaging playground examining custom scanner views and dense material properties.",
+      category: "apps"
     }
   ];
 
