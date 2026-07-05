@@ -3,16 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { 
   Instagram, MapPin, Code2, Rocket, ExternalLink, Mail, 
-  Github, Globe, Phone, Bot, Gamepad2, Sparkles, LayoutGrid 
+  Github, Phone, Bot
 } from "lucide-react";
 
 export default function App() {
-  const [activeCategory, setActiveCategory] = useState("all");
-
   const projects = [
     {
       name: "7pace Time Tracker for Azure DevOps",
@@ -118,6 +115,13 @@ export default function App() {
       color: "bg-[#00E5FF]",
       description: "An interactive visual simulation and medical imaging playground examining custom scanner views and dense material properties.",
       category: "apps"
+    },
+    {
+      name: "Chess Master",
+      link: "https://chess-master-dusky.vercel.app/",
+      color: "bg-[#795548]",
+      description: "An elegant, interactive multiplayer and AI-driven chess game featuring pristine board visualizations and responsive move physics.",
+      category: "games"
     }
   ];
 
@@ -187,114 +191,38 @@ export default function App() {
               <div className="h-[4px] flex-grow bg-black rounded-full hidden sm:block"></div>
             </div>
 
-            {/* Category Navigation Tabs */}
-            <div className="flex flex-wrap gap-3 p-1">
-              {[
-                { id: "all", label: "All Projects", icon: LayoutGrid, activeColor: "bg-[#FF3E81] text-white shadow-[2px_2px_0_0_#000] translate-x-[2px] translate-y-[2px]" },
-                { id: "ai", label: "AI Tools 🤖", icon: Bot, activeColor: "bg-[#6C5CE7] text-white shadow-[2px_2px_0_0_#000] translate-x-[2px] translate-y-[2px]" },
-                { id: "games", label: "Games & Fun 🎮", icon: Gamepad2, activeColor: "bg-[#00D8D6] text-black shadow-[2px_2px_0_0_#000] translate-x-[2px] translate-y-[2px]" },
-                { id: "apps", label: "Web Apps 🌐", icon: Sparkles, activeColor: "bg-[#FFD600] text-black shadow-[2px_2px_0_0_#000] translate-x-[2px] translate-y-[2px]" }
-              ].map((tab) => {
-                const Icon = tab.icon;
-                const isActive = activeCategory === tab.id;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveCategory(tab.id)}
-                    className={`flex items-center gap-2 px-5 py-3 border-3 border-black rounded-2xl font-black uppercase tracking-wider text-xs transition-all cursor-pointer ${
-                      isActive 
-                        ? `${tab.activeColor}` 
-                        : "bg-white text-black hover:bg-gray-50 shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px]"
-                    }`}
-                  >
-                    <Icon className="w-4 h-4 stroke-[2.5]" />
-                    {tab.label}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Project List / Grouped Sections */}
-            <div className="flex flex-col gap-12">
-              {[
-                {
-                  id: "ai",
-                  title: "AI Tools & Intelligent Apps",
-                  icon: Bot,
-                  color: "text-[#6C5CE7]",
-                  borderColor: "border-[#6C5CE7]",
-                  badgeBg: "bg-[#6C5CE7]/15 text-[#6C5CE7]",
-                  items: projects.filter(p => p.category === "ai")
-                },
-                {
-                  id: "games",
-                  title: "Games & Physics Playgrounds",
-                  icon: Gamepad2,
-                  color: "text-[#FF1F8E]",
-                  borderColor: "border-[#FF1F8E]",
-                  badgeBg: "bg-[#FF1F8E]/15 text-[#FF1F8E]",
-                  items: projects.filter(p => p.category === "games")
-                },
-                {
-                  id: "apps",
-                  title: "Web Applications & Utilities",
-                  icon: Sparkles,
-                  color: "text-[#00C2FF]",
-                  borderColor: "border-[#00C2FF]",
-                  badgeBg: "bg-[#00C2FF]/15 text-[#00C2FF]",
-                  items: projects.filter(p => p.category === "apps")
-                }
-              ]
-                .filter(sec => activeCategory === "all" || sec.id === activeCategory)
-                .map((section) => (
-                  <div key={section.id} className="flex flex-col gap-6">
-                    {/* Sub Section Header */}
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-2 px-4 py-2 border-3 border-black rounded-xl font-black uppercase text-xs tracking-wider bg-white shadow-[4px_4px_0_0_#000]">
-                        <section.icon className={`w-4 h-4 ${section.color} stroke-[3]`} />
-                        <span>{section.title}</span>
-                        <span className={`ml-2 px-2 py-0.5 rounded-md text-[10px] font-black ${section.badgeBg}`}>
-                          {section.items.length}
-                        </span>
-                      </div>
-                      <div className="h-[2px] flex-grow bg-black/15"></div>
-                    </div>
-
-                    {/* Section Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {section.items.map((project, idx) => (
-                        <motion.a
-                          key={project.name}
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          initial={{ opacity: 0, y: 15 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: idx * 0.05 }}
-                          className={`group relative overflow-hidden border-4 border-black p-6 rounded-[2rem] shadow-[6px_6px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-1 hover:translate-y-1 transition-all flex flex-col justify-between min-h-[190px] ${project.color}`}
-                        >
-                          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                            <Rocket className="w-16 h-16 -rotate-12" />
-                          </div>
-
-                          <div className="relative z-10 flex flex-col gap-1.5">
-                            <h4 className="text-xl md:text-2xl font-black uppercase leading-tight tracking-tight mb-1">
-                              {project.name}
-                            </h4>
-                            <p className="font-bold opacity-85 text-xs leading-relaxed max-w-sm">
-                              {project.description}
-                            </p>
-                          </div>
-
-                          <div className="relative z-10 mt-6 flex items-center gap-2 bg-white text-black self-start px-3.5 py-2 border-3 border-black rounded-xl font-black text-[10px] uppercase tracking-widest group-hover:bg-black group-hover:text-white transition-colors">
-                            Launch Project <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
-                          </div>
-                        </motion.a>
-                      ))}
-                    </div>
+            {/* Project Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {projects.map((project, idx) => (
+                <motion.a
+                  key={project.name}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.05 }}
+                  className={`group relative overflow-hidden border-4 border-black p-6 rounded-[2rem] shadow-[6px_6px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-1 hover:translate-y-1 transition-all flex flex-col justify-between min-h-[190px] ${project.color}`}
+                >
+                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <Rocket className="w-16 h-16 -rotate-12" />
                   </div>
-                ))}
+
+                  <div className="relative z-10 flex flex-col gap-1.5">
+                    <h4 className="text-xl md:text-2xl font-black uppercase leading-tight tracking-tight mb-1">
+                      {project.name}
+                    </h4>
+                    <p className="font-bold opacity-85 text-xs leading-relaxed max-w-sm">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="relative z-10 mt-6 flex items-center gap-2 bg-white text-black self-start px-3.5 py-2 border-3 border-black rounded-xl font-black text-[10px] uppercase tracking-widest group-hover:bg-black group-hover:text-white transition-colors">
+                    Launch Project <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
+                  </div>
+                </motion.a>
+              ))}
             </div>
 
             {/* Coming Soon Projects */}
