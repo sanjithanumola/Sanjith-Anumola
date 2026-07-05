@@ -122,6 +122,13 @@ export default function App() {
       color: "bg-[#795548]",
       description: "An elegant, interactive multiplayer and AI-driven chess game featuring pristine board visualizations and responsive move physics.",
       category: "games"
+    },
+    {
+      name: "X-Ray Hand Scanner",
+      link: "https://xrayhand-rel4jry7.manus.space/",
+      color: "bg-[#1DD1A1]",
+      description: "An interactive hand anatomy simulator and X-Ray visualization playground with realistic real-time scanner mapping.",
+      category: "apps"
     }
   ];
 
