@@ -129,6 +129,13 @@ export default function App() {
       color: "bg-[#1DD1A1]",
       description: "An interactive hand anatomy simulator and X-Ray visualization playground with realistic real-time scanner mapping.",
       category: "apps"
+    },
+    {
+      name: "Creative Flow Canvas",
+      link: "https://flow-cyan-mu.vercel.app/",
+      color: "bg-[#54A0FF]",
+      description: "An immersive visual workspace and interactive diagramming board for planning, wireframing, and tracking dynamic process flows.",
+      category: "apps"
     }
   ];
 
