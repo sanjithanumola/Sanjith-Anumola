@@ -6,7 +6,7 @@
 import { motion } from "motion/react";
 import { 
   Instagram, MapPin, Code2, Rocket, ExternalLink, Mail, 
-  Github, Phone, Bot
+  Github, Phone, Bot, AtSign 
 } from "lucide-react";
 
 export default function App() {
@@ -348,6 +348,7 @@ export default function App() {
                       <a 
                         href="https://github.com/sanjithanumola" 
                         target="_blank" 
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:rotate-1 transition-transform"
                       >
                         <Github className="w-4 h-4 text-[#181717]" />
@@ -355,37 +356,50 @@ export default function App() {
                       </a>
 
                       <a 
-                        href="https://instagram.com/sanjith.anumola_12" 
+                        href="https://www.instagram.com/i._.am._.sanjith" 
                         target="_blank" 
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:-rotate-1 transition-transform"
                       >
                         <Instagram className="w-4 h-4 text-[#FF3E81]" />
-                        <span className="font-bold text-xs uppercase">Instagram</span>
+                        <span className="font-bold text-xs uppercase truncate">Instagram</span>
                       </a>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <a 
-                        href="tel:+919381259371" 
+                        href="https://www.threads.com/@sanjith.anumola_12" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:rotate-1 transition-transform"
+                      >
+                        <AtSign className="w-4 h-4 text-[#000000]" />
+                        <span className="font-bold text-xs uppercase">Threads</span>
+                      </a>
+
+                      <a 
+                        href="tel:+919381259371" 
+                        className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:-rotate-1 transition-transform"
                       >
                         <Phone className="w-4 h-4 text-[#00E676]" />
                         <span className="font-bold text-xs uppercase">Call Me</span>
                       </a>
+                    </div>
 
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black">
                         <MapPin className="w-4 h-4 text-[#00C2FF]" />
                         <span className="font-bold text-xs uppercase">Hyderabad</span>
                       </div>
-                    </div>
 
-                    <a 
-                      href="mailto:sanjith.anumola@gmail.com" 
-                      className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:-rotate-1 transition-transform overflow-hidden"
-                    >
-                      <Mail className="w-4 h-4 flex-shrink-0 text-[#7C3AED]" />
-                      <span className="font-bold text-xs truncate">sanjith.anumola@gmail.com</span>
-                    </a>
+                      <a 
+                        href="mailto:sanjith.anumola@gmail.com" 
+                        className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:-rotate-1 transition-transform overflow-hidden"
+                      >
+                        <Mail className="w-4 h-4 flex-shrink-0 text-[#7C3AED]" />
+                        <span className="font-bold text-xs truncate">Email</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
