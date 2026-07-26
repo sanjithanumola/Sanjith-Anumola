@@ -136,6 +136,13 @@ export default function App() {
       color: "bg-[#54A0FF]",
       description: "An immersive visual workspace and interactive diagramming board for planning, wireframing, and tracking dynamic process flows.",
       category: "apps"
+    },
+    {
+      name: "Spin Sphere",
+      link: "https://spin-sphere.vercel.app/",
+      color: "bg-[#E056FD]",
+      description: "An interactive, dynamic 3D spinning sphere sandbox exploring kinetic rotation, particle dynamics, and responsive physics.",
+      category: "games"
     }
   ];
 
