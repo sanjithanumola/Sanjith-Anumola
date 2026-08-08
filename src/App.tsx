@@ -143,6 +143,13 @@ export default function App() {
       color: "bg-[#E056FD]",
       description: "An interactive, dynamic 3D spinning sphere sandbox exploring kinetic rotation, particle dynamics, and responsive physics.",
       category: "games"
+    },
+    {
+      name: "Gemini Web OS",
+      link: "https://gemini-web-os-two.vercel.app/",
+      color: "bg-[#FFBE00]",
+      description: "An AI-powered web desktop operating system featuring multi-window management, interactive tools, and intelligent Gemini assistant capabilities.",
+      category: "apps"
     }
   ];
 
