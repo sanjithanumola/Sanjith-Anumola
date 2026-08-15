@@ -150,6 +150,13 @@ export default function App() {
       color: "bg-[#FFBE00]",
       description: "An AI-powered web desktop operating system featuring multi-window management, interactive tools, and intelligent Gemini assistant capabilities.",
       category: "apps"
+    },
+    {
+      name: "Mini Craft",
+      link: "https://mini-game-liard-three.vercel.app/#",
+      color: "bg-[#2ED573]",
+      description: "An interactive Minecraft-inspired 3D block crafting and exploration world, built and created with AI.",
+      category: "games"
     }
   ];
 
