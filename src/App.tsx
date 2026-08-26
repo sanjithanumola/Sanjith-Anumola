@@ -6,7 +6,7 @@
 import { motion } from "motion/react";
 import { 
   Instagram, MapPin, Code2, Rocket, ExternalLink, Mail, 
-  Github, Phone, Bot, AtSign 
+  Github, Phone, Bot, AtSign, MessageSquare, Flame 
 } from "lucide-react";
 
 export default function App() {
@@ -396,6 +396,28 @@ export default function App() {
                       >
                         <AtSign className="w-4 h-4 text-[#000000]" />
                         <span className="font-bold text-xs uppercase">Threads</span>
+                      </a>
+
+                      <a 
+                        href="https://www.reddit.com/user/its_sanjith/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:-rotate-1 transition-transform"
+                      >
+                        <Flame className="w-4 h-4 text-[#FF4500]" />
+                        <span className="font-bold text-xs uppercase truncate">Reddit</span>
+                      </a>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <a 
+                        href="https://discord.gg/NhfcpPEPm" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:rotate-1 transition-transform"
+                      >
+                        <MessageSquare className="w-4 h-4 text-[#5865F2]" />
+                        <span className="font-bold text-xs uppercase">Discord</span>
                       </a>
 
                       <a 
