@@ -3,13 +3,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion } from "motion/react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { 
   Instagram, MapPin, Code2, Rocket, ExternalLink, Mail, 
-  Github, Phone, Bot, AtSign, MessageSquare, Flame 
+  Github, Phone, Bot, AtSign, MessageSquare, Flame, Copy, Check, X 
 } from "lucide-react";
 
 export default function App() {
+  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("sanjith.anumola@gmail.com");
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2500);
+  };
   const projects = [
     {
       name: "7pace Time Tracker for Azure DevOps",
@@ -182,9 +191,6 @@ export default function App() {
               <h1 className="text-7xl md:text-[7rem] font-black uppercase leading-[0.85] tracking-tighter text-[#FF3E81]">
                 SANJITH<br />ANUMOLA
               </h1>
-              <div className="hidden sm:flex w-24 h-24 rounded-3xl bg-[#FFD600] border-4 border-black rotate-3 items-center justify-center text-5xl shadow-[4px_4px_0_0_#000]">
-                🚀
-              </div>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#00C2FF] leading-tight">
@@ -435,13 +441,17 @@ export default function App() {
                         <span className="font-bold text-xs uppercase">Hyderabad</span>
                       </div>
 
-                      <a 
-                        href="mailto:sanjith.anumola@gmail.com" 
-                        className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:-rotate-1 transition-transform overflow-hidden"
+                      <button 
+                        onClick={() => {
+                          setShowEmailModal(true);
+                          handleCopyEmail();
+                        }}
+                        title="Click to copy email address"
+                        className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:-rotate-1 transition-transform overflow-hidden text-left cursor-pointer"
                       >
                         <Mail className="w-4 h-4 flex-shrink-0 text-[#7C3AED]" />
                         <span className="font-bold text-xs truncate">Email</span>
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -454,6 +464,90 @@ export default function App() {
 
         </aside>
       </main>
+
+      {/* Email Copy Dialog Modal */}
+      <AnimatePresence>
+        {showEmailModal && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowEmailModal(false)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-xs cursor-pointer"
+            />
+
+            {/* Dialog Content */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 350 }}
+              className="relative w-full max-w-md bg-white border-4 border-black p-6 sm:p-7 rounded-[2rem] shadow-[8px_8px_0_0_#000] z-10 flex flex-col gap-5"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#7C3AED] border-2 border-black flex items-center justify-center text-white shadow-[2px_2px_0_0_#000]">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black uppercase tracking-tight text-black leading-none">
+                      Email Address
+                    </h3>
+                  </div>
+                </div>
+
+                <button 
+                  onClick={() => setShowEmailModal(false)}
+                  className="w-8 h-8 rounded-lg bg-gray-100 border-2 border-black hover:bg-gray-200 flex items-center justify-center transition-colors cursor-pointer"
+                  title="Close Dialog"
+                >
+                  <X className="w-4 h-4 text-black stroke-[3]" />
+                </button>
+              </div>
+
+              {/* Email Address Display Box */}
+              <div className="bg-[#F8F9FA] border-3 border-black p-3.5 rounded-2xl flex items-center justify-between gap-3">
+                <div className="overflow-hidden">
+                  <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest block">Email</span>
+                  <span className="font-bold text-sm sm:text-base text-black select-all break-all">
+                    sanjith.anumola@gmail.com
+                  </span>
+                </div>
+                <div className="shrink-0">
+                  <span className={`text-xs font-black px-2.5 py-1 rounded-lg border-2 border-black transition-colors ${
+                    copiedEmail ? "bg-[#00E676] text-black" : "bg-[#FFD600] text-black"
+                  }`}>
+                    {copiedEmail ? "Copied!" : "Ready"}
+                  </span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={handleCopyEmail}
+                  className="flex-1 flex items-center justify-center gap-2 bg-[#7C3AED] text-white py-3 px-4 rounded-xl border-3 border-black font-black text-sm uppercase tracking-wider shadow-[3px_3px_0_0_#000] hover:shadow-[1px_1px_0_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-pointer"
+                >
+                  {copiedEmail ? (
+                    <>
+                      <Check className="w-4 h-4 stroke-[3]" />
+                      <span>Copied to Clipboard!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4 stroke-[2.5]" />
+                      <span>Copy Email Address</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Marquee Footer (Purely Aesthetic) */}
       <div className="fixed bottom-0 w-full overflow-hidden bg-[#7C3AED] py-3 border-t-4 border-black whitespace-nowrap hidden md:block z-50">
