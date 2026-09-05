@@ -284,7 +284,7 @@ export default function App() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-1.5 bg-white text-black px-3.5 py-2 border-3 border-black rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-black hover:text-white transition-colors shadow-[2px_2px_0_0_#000]"
                     >
-                      Launch <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
+                      Visit <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
                     </a>
                     <a
                       href={project.github}
