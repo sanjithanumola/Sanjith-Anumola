@@ -2,5 +2,7 @@
   "name": "Sanjith.Anumola",
   "description": "Portfolio and bio for Sanjith Anumola, a 13-year-old web developer from Hyderabad.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

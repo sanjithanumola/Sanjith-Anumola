@@ -23,6 +23,7 @@ export default function App() {
     {
       name: "7pace Time Tracker for Azure DevOps",
       link: "https://7pace-time-tracker-for-azure-dev-op.vercel.app/",
+      github: "https://github.com/sanjithanumola/-7pace-Time-Tracker-for-Azure-DevOps-.",
       color: "bg-[#00E676]",
       description: "A professional time tracking solution integrated with Azure DevOps.",
       category: "apps"
@@ -30,6 +31,7 @@ export default function App() {
     {
       name: "Smart Notes",
       link: "https://smart-notes-ai-ecru.vercel.app/",
+      github: "https://github.com/sanjithanumola/SmartNotes-Ai",
       color: "bg-[#FFD600]",
       description: "An AI-powered note-taking application for smarter productivity.",
       category: "ai"
@@ -37,6 +39,7 @@ export default function App() {
     {
       name: "Daily Health Guardian",
       link: "https://daily-health-guardian.vercel.app/",
+      github: "https://github.com/sanjithanumola/Daily-Health-Guardian",
       color: "bg-[#00C2FF]",
       description: "Your personal companion for tracking and improving daily health habits.",
       category: "apps"
@@ -44,6 +47,7 @@ export default function App() {
     {
       name: "Tic Tac Toe",
       link: "https://tic-tac-toe-liart-alpha-24.vercel.app/",
+      github: "https://github.com/sanjithanumola/TIC-TAC-TOE",
       color: "bg-[#FF3E81]",
       description: "A fun and interactive classic Tic Tac Toe game with a modern touch.",
       category: "games"
@@ -51,6 +55,7 @@ export default function App() {
     {
       name: "Red Pulse",
       link: "https://red-pulse-news.vercel.app/",
+      github: "https://github.com/sanjithanumola/RedPulse-News",
       color: "bg-[#FF5252]",
       description: "A global intelligence and news platform for staying updated with the world.",
       category: "apps"
@@ -58,6 +63,7 @@ export default function App() {
     {
       name: "Interactive Periodic Table",
       link: "https://periodic-table-blond.vercel.app/",
+      github: "https://github.com/sanjithanumola/periodic-table",
       color: "bg-[#BD00FF]",
       description: "An educational and beautifully interactive periodic table showcasing properties of all chemical elements.",
       category: "apps"
@@ -65,6 +71,7 @@ export default function App() {
     {
       name: "Tuggable Lamp",
       link: "https://lamp-ebon.vercel.app/",
+      github: "https://github.com/sanjithanumola/Lamp",
       color: "bg-[#FF9100]",
       description: "A playfully realistic interactive hanging lamp experience utilizing physics-based chain interactions.",
       category: "games"
@@ -72,6 +79,7 @@ export default function App() {
     {
       name: "House Build Game",
       link: "https://house-build-game.vercel.app/",
+      github: "https://github.com/sanjithanumola/house-build-game",
       color: "bg-[#05C46B]",
       description: "A fun, block-building and structural construction game with interactive mechanics.",
       category: "games"
@@ -79,6 +87,7 @@ export default function App() {
     {
       name: "Lexora AI",
       link: "https://lexora-ai-gray.vercel.app/",
+      github: "https://github.com/sanjithanumola/Lexora-AI",
       color: "bg-[#6C5CE7]",
       description: "An intelligent, adaptive, and highly responsive generative AI assistant companion.",
       category: "ai"
@@ -86,6 +95,7 @@ export default function App() {
     {
       name: "Massive Multiplayer Laser Tag",
       link: "https://massive-multiplayer-laser-tag-omega.vercel.app/",
+      github: "https://github.com/sanjithanumola/Massive-Multiplayer-Laser-Tag",
       color: "bg-[#00D8D6]",
       description: "An exhilarating, real-time multiplayer laser tag game built with dynamic physics and competitive mechanics.",
       category: "games"
@@ -93,6 +103,7 @@ export default function App() {
     {
       name: "Gemini Slingshot",
       link: "https://slingshot-dun-kappa.vercel.app/",
+      github: "https://github.com/sanjithanumola/Slingshot",
       color: "bg-[#FF1F8E]",
       description: "An interactive, camera-controlled experience combining real-time hand-tracking computer vision with elastic, physics-based slingshot controls.",
       category: "ai"
@@ -100,6 +111,7 @@ export default function App() {
     {
       name: "Lyria Rhythm",
       link: "https://rhythm-ruddy.vercel.app/",
+      github: "https://github.com/sanjithanumola/Rhythm",
       color: "bg-[#8338EC]",
       description: "A dynamic and beautifully interactive music-making experience featuring captivating rhythm layouts and sound mechanics.",
       category: "games"
@@ -107,6 +119,7 @@ export default function App() {
     {
       name: "Run Chase!",
       link: "https://cricket-rho-hazel.vercel.app/",
+      github: "https://github.com/sanjithanumola/Cricket",
       color: "bg-[#4CAF50]",
       description: "An interactive, retro-styled arcade cricket run-chasing game featuring exciting physics-based hitting mechanics.",
       category: "games"
@@ -114,6 +127,7 @@ export default function App() {
     {
       name: "Kinetic Canvas",
       link: "https://kinetic-ashy.vercel.app/",
+      github: "https://github.com/sanjithanumola/-Kinetic-Shapes",
       color: "bg-[#FF5E57]",
       description: "An interactive visual sandbox exploring dynamic physics, organic particle motion, and kinetic gravity interactions.",
       category: "games"
@@ -121,6 +135,7 @@ export default function App() {
     {
       name: "X-Ray Vision Portal",
       link: "https://xray2-five.vercel.app/",
+      github: "https://github.com/sanjithanumola/xray2",
       color: "bg-[#00E5FF]",
       description: "An interactive visual simulation and medical imaging playground examining custom scanner views and dense material properties.",
       category: "apps"
@@ -128,6 +143,7 @@ export default function App() {
     {
       name: "Chess Master",
       link: "https://chess-master-dusky.vercel.app/",
+      github: "https://github.com/sanjithanumola/Chess-Master",
       color: "bg-[#795548]",
       description: "An elegant, interactive multiplayer and AI-driven chess game featuring pristine board visualizations and responsive move physics.",
       category: "games"
@@ -135,6 +151,7 @@ export default function App() {
     {
       name: "X-Ray Hand Scanner",
       link: "https://xrayhand-rel4jry7.manus.space/",
+      github: "https://github.com/sanjithanumola/xray1",
       color: "bg-[#1DD1A1]",
       description: "An interactive hand anatomy simulator and X-Ray visualization playground with realistic real-time scanner mapping.",
       category: "apps"
@@ -142,6 +159,7 @@ export default function App() {
     {
       name: "Creative Flow Canvas",
       link: "https://flow-cyan-mu.vercel.app/",
+      github: "https://github.com/sanjithanumola/flow",
       color: "bg-[#54A0FF]",
       description: "An immersive visual workspace and interactive diagramming board for planning, wireframing, and tracking dynamic process flows.",
       category: "apps"
@@ -149,6 +167,7 @@ export default function App() {
     {
       name: "Spin Sphere",
       link: "https://spin-sphere.vercel.app/",
+      github: "https://github.com/sanjithanumola/SpinSphere",
       color: "bg-[#E056FD]",
       description: "An interactive, dynamic 3D spinning sphere sandbox exploring kinetic rotation, particle dynamics, and responsive physics.",
       category: "games"
@@ -156,6 +175,7 @@ export default function App() {
     {
       name: "Gemini Web OS",
       link: "https://gemini-web-os-two.vercel.app/",
+      github: "https://github.com/sanjithanumola/Gemini-Web-OS",
       color: "bg-[#FFBE00]",
       description: "An AI-powered web desktop operating system featuring multi-window management, interactive tools, and intelligent Gemini assistant capabilities.",
       category: "apps"
@@ -163,6 +183,7 @@ export default function App() {
     {
       name: "Mini Craft",
       link: "https://mini-game-liard-three.vercel.app/#",
+      github: "https://github.com/sanjithanumola/Mini-Game",
       color: "bg-[#2ED573]",
       description: "An interactive Minecraft-inspired 3D block crafting and exploration world, built and created with AI.",
       category: "games"
@@ -235,18 +256,15 @@ export default function App() {
             {/* Project Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {projects.map((project, idx) => (
-                <motion.a
+                <motion.div
                   key={project.name}
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.05 }}
-                  className={`group relative overflow-hidden border-4 border-black p-6 rounded-[2rem] shadow-[6px_6px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-1 hover:translate-y-1 transition-all flex flex-col justify-between min-h-[190px] ${project.color}`}
+                  className={`group relative overflow-hidden border-4 border-black p-6 rounded-[2rem] shadow-[6px_6px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-1 hover:translate-y-1 transition-all flex flex-col justify-between min-h-[200px] ${project.color}`}
                 >
-                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none">
                     <Rocket className="w-16 h-16 -rotate-12" />
                   </div>
 
@@ -259,10 +277,27 @@ export default function App() {
                     </p>
                   </div>
 
-                  <div className="relative z-10 mt-6 flex items-center gap-2 bg-white text-black self-start px-3.5 py-2 border-3 border-black rounded-xl font-black text-[10px] uppercase tracking-widest group-hover:bg-black group-hover:text-white transition-colors">
-                    Launch Project <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
+                  <div className="relative z-10 mt-6 flex flex-wrap items-center gap-2.5">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 bg-white text-black px-3.5 py-2 border-3 border-black rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-black hover:text-white transition-colors shadow-[2px_2px_0_0_#000]"
+                    >
+                      Launch <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
+                    </a>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`View ${project.name} source code on GitHub`}
+                      className="flex items-center gap-1.5 bg-white text-black px-3.5 py-2 border-3 border-black rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-black hover:text-white transition-colors shadow-[2px_2px_0_0_#000]"
+                    >
+                      <Github className="w-3.5 h-3.5" />
+                      GitHub
+                    </a>
                   </div>
-                </motion.a>
+                </motion.div>
               ))}
             </div>
 
@@ -294,14 +329,26 @@ export default function App() {
                       </p>
                     </div>
                     
-                    <a
-                      href="https://car-seven-peach.vercel.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full bg-black hover:bg-[#FFD600] hover:text-black text-white font-black py-2.5 px-4 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
-                    >
-                      <span>Preview Work <ExternalLink className="w-3.5 h-3.5" /></span>
-                    </a>
+                    <div className="flex items-center gap-2.5">
+                      <a
+                        href="https://car-seven-peach.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-1.5 bg-black hover:bg-[#FFD600] hover:text-black text-white font-black py-2.5 px-3 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
+                      >
+                        <span>Preview <ExternalLink className="w-3.5 h-3.5" /></span>
+                      </a>
+                      <a
+                        href="https://github.com/sanjithanumola/Car-Game"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="View Interactive Car Showcase repository on GitHub"
+                        className="flex items-center justify-center gap-1.5 bg-white hover:bg-black hover:text-white text-black font-black py-2.5 px-3 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
+                      >
+                        <Github className="w-3.5 h-3.5" />
+                        <span>GitHub</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -322,14 +369,26 @@ export default function App() {
                       </p>
                     </div>
                     
-                    <a
-                      href="https://mail-gules-six.vercel.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full bg-black hover:bg-[#6C5CE7] hover:text-white text-white font-black py-2.5 px-4 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
-                    >
-                      <span>Preview Work <ExternalLink className="w-3.5 h-3.5" /></span>
-                    </a>
+                    <div className="flex items-center gap-2.5">
+                      <a
+                        href="https://mail-gules-six.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-1.5 bg-black hover:bg-[#6C5CE7] hover:text-white text-white font-black py-2.5 px-3 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
+                      >
+                        <span>Preview <ExternalLink className="w-3.5 h-3.5" /></span>
+                      </a>
+                      <a
+                        href="https://github.com/sanjithanumola/MailGenius-AI"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="View Mail Genius AI repository on GitHub"
+                        className="flex items-center justify-center gap-1.5 bg-white hover:bg-black hover:text-white text-black font-black py-2.5 px-3 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
+                      >
+                        <Github className="w-3.5 h-3.5" />
+                        <span>GitHub</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
