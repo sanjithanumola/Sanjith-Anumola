@@ -408,7 +408,7 @@ export default function App() {
             <div className="absolute -inset-2 bg-[#00FF00] border-2 border-black hidden group-hover:block transition-all"></div>
             <div className="relative bg-white border-4 border-black p-2 rounded-[2rem] shadow-[12px_12px_0_0_#000] group-hover:shadow-[4px_4px_0_0_#000] transition-all overflow-hidden">
               <img 
-                src="https://kommodo.ai/i/LGB2hCeZCOjeQ9zMIo2J" 
+                src="https://cdn.phototourl.com/free/2026-09-19-b4414c26-6fbd-41f9-918b-79dc3d76f490.png" 
                 alt="Sanjith Anumola Profile" 
                 className="w-full aspect-square object-cover rounded-2xl hover:scale-105 transition-transform duration-500"
                 referrerPolicy="no-referrer"
