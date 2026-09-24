@@ -286,16 +286,6 @@ export default function App() {
                     >
                       Visit <ExternalLink className="w-3.5 h-3.5 stroke-[2.5]" />
                     </a>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title={`View ${project.name} source code on GitHub`}
-                      className="flex items-center gap-1.5 bg-white text-black px-3.5 py-2 border-3 border-black rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-black hover:text-white transition-colors shadow-[2px_2px_0_0_#000]"
-                    >
-                      <Github className="w-3.5 h-3.5" />
-                      GitHub
-                    </a>
                   </div>
                 </motion.div>
               ))}
@@ -329,24 +319,14 @@ export default function App() {
                       </p>
                     </div>
                     
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center">
                       <a
                         href="https://car-seven-peach.vercel.app/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-1.5 bg-black hover:bg-[#FFD600] hover:text-black text-white font-black py-2.5 px-3 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
+                        className="w-full flex items-center justify-center gap-1.5 bg-black hover:bg-[#FFD600] hover:text-black text-white font-black py-2.5 px-3 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
                       >
                         <span>Preview <ExternalLink className="w-3.5 h-3.5" /></span>
-                      </a>
-                      <a
-                        href="https://github.com/sanjithanumola/Car-Game"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="View Interactive Car Showcase repository on GitHub"
-                        className="flex items-center justify-center gap-1.5 bg-white hover:bg-black hover:text-white text-black font-black py-2.5 px-3 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
-                      >
-                        <Github className="w-3.5 h-3.5" />
-                        <span>GitHub</span>
                       </a>
                     </div>
                   </div>
@@ -369,24 +349,14 @@ export default function App() {
                       </p>
                     </div>
                     
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center">
                       <a
                         href="https://mail-gules-six.vercel.app/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-1.5 bg-black hover:bg-[#6C5CE7] hover:text-white text-white font-black py-2.5 px-3 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
+                        className="w-full flex items-center justify-center gap-1.5 bg-black hover:bg-[#6C5CE7] hover:text-white text-white font-black py-2.5 px-3 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
                       >
                         <span>Preview <ExternalLink className="w-3.5 h-3.5" /></span>
-                      </a>
-                      <a
-                        href="https://github.com/sanjithanumola/MailGenius-AI"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="View Mail Genius AI repository on GitHub"
-                        className="flex items-center justify-center gap-1.5 bg-white hover:bg-black hover:text-white text-black font-black py-2.5 px-3 border-3 border-black rounded-xl text-xs uppercase tracking-wider transition-all"
-                      >
-                        <Github className="w-3.5 h-3.5" />
-                        <span>GitHub</span>
                       </a>
                     </div>
                   </div>
