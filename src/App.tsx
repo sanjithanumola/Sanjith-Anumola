@@ -187,6 +187,14 @@ export default function App() {
       color: "bg-[#2ED573]",
       description: "An interactive Minecraft-inspired 3D block crafting and exploration world, built and created with AI.",
       category: "games"
+    },
+    {
+      name: "Rock Paper Scissors",
+      link: "https://rock-paper-scissors-web-umber.vercel.app/",
+      github: "https://github.com/sanjithanumola/rock-paper-scissors",
+      color: "bg-[#FF4757]",
+      description: "An interactive, beautifully styled Rock Paper Scissors game featuring fast-paced gameplay and responsive score tracking.",
+      category: "games"
     }
   ];
 
@@ -446,7 +454,7 @@ export default function App() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <a 
-                        href="https://discord.gg/NhfcpPEPm" 
+                        href="https://discord.gg/hgmfNbKEt" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:rotate-1 transition-transform"
