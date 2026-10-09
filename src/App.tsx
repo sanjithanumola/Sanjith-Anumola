@@ -195,6 +195,14 @@ export default function App() {
       color: "bg-[#FF4757]",
       description: "An interactive, beautifully styled Rock Paper Scissors game featuring fast-paced gameplay and responsive score tracking.",
       category: "games"
+    },
+    {
+      name: "PixelLab AI",
+      link: "https://pixellab-ten.vercel.app/",
+      github: "https://github.com/sanjithanumola/pixellab",
+      color: "bg-[#00D2D3]",
+      description: "A professional desktop-class browser photo editor featuring non-destructive adjustments, layer management, vector shapes, brush drawing, and AI subject isolation.",
+      category: "apps"
     }
   ];
 
