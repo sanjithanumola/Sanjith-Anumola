@@ -203,6 +203,14 @@ export default function App() {
       color: "bg-[#00D2D3]",
       description: "A professional desktop-class browser photo editor featuring non-destructive adjustments, layer management, vector shapes, brush drawing, and AI subject isolation.",
       category: "apps"
+    },
+    {
+      name: "Symbolify",
+      link: "https://symbolify-free-symbols-fancy-text-g-dusky.vercel.app/",
+      github: "https://github.com/sanjithanumola/symbolify",
+      color: "bg-[#A55EEA]",
+      description: "A free utility to discover and copy special symbols, aesthetic characters, fancy text, emojis, kaomoji, and decorative text instantly.",
+      category: "apps"
     }
   ];
 
