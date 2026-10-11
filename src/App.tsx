@@ -211,6 +211,14 @@ export default function App() {
       color: "bg-[#A55EEA]",
       description: "A free utility to discover and copy special symbols, aesthetic characters, fancy text, emojis, kaomoji, and decorative text instantly.",
       category: "apps"
+    },
+    {
+      name: "ScienceVerse",
+      link: "https://science-verse-six.vercel.app/",
+      github: "https://github.com/sanjithanumola/scienceverse",
+      color: "bg-[#0BE881]",
+      description: "An interactive science universe featuring dynamic physics simulations, 118-element periodic table, 3D solar systems, and interactive experiments.",
+      category: "apps"
     }
   ];
 
