@@ -219,6 +219,14 @@ export default function App() {
       color: "bg-[#0BE881]",
       description: "An interactive science universe featuring dynamic physics simulations, 118-element periodic table, 3D solar systems, and interactive experiments.",
       category: "apps"
+    },
+    {
+      name: "QR Studio",
+      link: "https://qr-studio-theta-lyart.vercel.app/",
+      github: "https://github.com/sanjithanumola/qr-studio",
+      color: "bg-[#FFA801]",
+      description: "A professional QR code customization studio to design, style, preview, and download custom QR codes with logos, custom corners, and print templates.",
+      category: "apps"
     }
   ];
 
