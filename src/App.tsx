@@ -21,14 +21,6 @@ export default function App() {
   };
   const projects = [
     {
-      name: "7pace Time Tracker for Azure DevOps",
-      link: "https://7pace-time-tracker-for-azure-dev-op.vercel.app/",
-      github: "https://github.com/sanjithanumola/-7pace-Time-Tracker-for-Azure-DevOps-.",
-      color: "bg-[#00E676]",
-      description: "A professional time tracking solution integrated with Azure DevOps.",
-      category: "apps"
-    },
-    {
       name: "Smart Notes",
       link: "https://smart-notes-ai-ecru.vercel.app/",
       github: "https://github.com/sanjithanumola/SmartNotes-Ai",
