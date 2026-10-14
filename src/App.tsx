@@ -219,6 +219,14 @@ export default function App() {
       color: "bg-[#FFA801]",
       description: "A professional QR code customization studio to design, style, preview, and download custom QR codes with logos, custom corners, and print templates.",
       category: "apps"
+    },
+    {
+      name: "FontForge Studio",
+      link: "https://font-forge-studio.vercel.app/",
+      github: "https://github.com/sanjithanumola/font-forge-studio",
+      color: "bg-[#5F27CD]",
+      description: "An advanced text styling and typography editor featuring live effects, multi-layer canvas, and high-resolution export.",
+      category: "apps"
     }
   ];
 
