@@ -227,6 +227,14 @@ export default function App() {
       color: "bg-[#5F27CD]",
       description: "An advanced text styling and typography editor featuring live effects, multi-layer canvas, and high-resolution export.",
       category: "apps"
+    },
+    {
+      name: "ColorCraft",
+      link: "https://color-craft-ashy.vercel.app/",
+      github: "https://github.com/sanjithanumola/color-craft",
+      color: "bg-[#FF3E81]",
+      description: "A professional color palette and gradient studio to generate harmonious palettes, craft custom gradients, verify WCAG contrast, and export production-ready CSS.",
+      category: "apps"
     }
   ];
 
