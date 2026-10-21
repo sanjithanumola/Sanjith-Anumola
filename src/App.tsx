@@ -9,6 +9,7 @@ import {
   Instagram, MapPin, Code2, Rocket, ExternalLink, Mail, 
   Github, Phone, Bot, AtSign, MessageSquare, Flame, Copy, Check, X 
 } from "lucide-react";
+import { SoloBotWidget } from "./components/SoloBot/SoloBotWidget";
 
 export default function App() {
   const [showEmailModal, setShowEmailModal] = useState(false);
@@ -625,6 +626,9 @@ export default function App() {
           </div>
         )}
       </AnimatePresence>
+
+      {/* Solo Bot - Animated AI Robot Assistant Mascot & Interactive Chat */}
+      <SoloBotWidget />
 
       {/* Marquee Footer (Purely Aesthetic) */}
       <div className="fixed bottom-0 w-full overflow-hidden bg-[#7C3AED] py-3 border-t-4 border-black whitespace-nowrap hidden md:block z-50">
