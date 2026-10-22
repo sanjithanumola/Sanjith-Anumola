@@ -1,56 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { SoloBotRobot, RobotState } from "./SoloBotRobot";
-import { SoloBotBubble } from "./SoloBotBubble";
-import { SoloBotChatModal } from "./SoloBotChatModal";
 import { useRobotPhysics } from "./useRobotPhysics";
 
+// Playful sci-fi robot audio synthesizer (pure Web Audio API, harmless, no assets needed)
+const playRobotSound = (type: "chirp" | "land" | "click") => {
+  try {
+    const AudioContextClass =
+      window.AudioContext ||
+      (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+    if (!AudioContextClass) return;
+    const ctx = new AudioContextClass();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    const now = ctx.currentTime;
+    if (type === "click" || type === "chirp") {
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(540, now);
+      osc.frequency.exponentialRampToValueAtTime(880, now + 0.07);
+      osc.frequency.exponentialRampToValueAtTime(1240, now + 0.16);
+      gain.gain.setValueAtTime(0.04, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+      osc.start(now);
+      osc.stop(now + 0.22);
+    } else if (type === "land") {
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(240, now);
+      osc.frequency.exponentialRampToValueAtTime(420, now + 0.08);
+      gain.gain.setValueAtTime(0.045, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+      osc.start(now);
+      osc.stop(now + 0.18);
+    }
+  } catch {
+    // Gracefully ignore if audio context is blocked
+  }
+};
+
 export const SoloBotWidget: React.FC = () => {
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const [userClosedBubble, setUserClosedBubble] = useState(false);
   const [robotState, setRobotState] = useState<RobotState>("greeting");
+  const prevIsLandingRef = useRef(false);
 
   // Initial greeting animation settling to idle
-  React.useEffect(() => {
+  useEffect(() => {
     const timer = setTimeout(() => {
       setRobotState("idle");
     }, 1400);
     return () => clearTimeout(timer);
   }, []);
 
-  const handleRobotClick = () => {
-    // Playful bounce & state transition
+  // Click handler on the robot mascot: playful bounce and sci-fi chirp
+  const handleRobotClick = useCallback(() => {
+    playRobotSound("chirp");
+
+    // Cheerful celebration bounce
     setRobotState("clicked");
 
     setTimeout(() => {
-      // Toggle or open chat
-      setIsChatOpen((prev) => {
-        const nextState = !prev;
-        if (nextState) {
-          // Temporarily hide bubble while chat is open
-        }
-        return nextState;
-      });
       setRobotState("idle");
-    }, 320);
-  };
+    }, 1200);
+  }, []);
 
-  const handleBubbleClick = () => {
-    setUserClosedBubble(true);
-    setRobotState("greeting");
-    setIsChatOpen(true);
-    setTimeout(() => setRobotState("idle"), 1200);
-  };
-
-  const handleCloseChat = () => {
-    setIsChatOpen(false);
-    setRobotState("idle");
-  };
-
-  const handleCloseBubble = () => {
-    setUserClosedBubble(true);
-  };
-
-  // Connect physics, dragging, safe landing, and companion mode
+  // Connect physics, dragging, safe landing, and companion follow mode
   const {
     position,
     isInitialized,
@@ -61,7 +75,6 @@ export const SoloBotWidget: React.FC = () => {
     tiltAngle,
     stretchScale,
     lookOffset,
-    bubblePlacement,
     toggleFollowMode,
     handlePointerDown,
     handlePointerMove,
@@ -70,32 +83,20 @@ export const SoloBotWidget: React.FC = () => {
     robotWidth: 115,
     robotHeight: 110,
     safeMargin: 16,
-    isChatOpen,
+    isChatOpen: false,
     onTap: handleRobotClick,
   });
 
-  // Dynamic bubble position wrapper classes matching placement
-  const bubblePositionClass = {
-    "top-right": "bottom-full right-0 mb-3.5",
-    "top-left": "bottom-full left-0 mb-3.5",
-    "bottom-right": "top-full right-0 mt-3.5",
-    "bottom-left": "top-full left-0 mt-3.5",
-  }[bubblePlacement];
-
-  // Speech bubble is hidden while dragging or while chat modal is open
-  const showBubble = isInitialized && !isChatOpen && !userClosedBubble && !isDragging;
+  // Play subtle land sound on landing impact
+  useEffect(() => {
+    if (isLanding && !prevIsLandingRef.current) {
+      playRobotSound("land");
+    }
+    prevIsLandingRef.current = isLanding;
+  }, [isLanding]);
 
   return (
     <>
-      {/* Interactive Chat Panel Modal */}
-      <SoloBotChatModal
-        isOpen={isChatOpen}
-        onClose={handleCloseChat}
-        onStateChange={(newState) => setRobotState(newState)}
-        followMode={followMode}
-        onToggleFollowMode={toggleFollowMode}
-      />
-
       {/* Physics-driven Floating Robot Container positioned across viewport */}
       {isInitialized && (
         <div
@@ -109,23 +110,10 @@ export const SoloBotWidget: React.FC = () => {
           }}
           className="pointer-events-none select-none"
         >
-          {/* Smart Edge-Flipping Speech Bubble */}
-          <div
-            className={`absolute ${bubblePositionClass} pointer-events-auto transition-all duration-300`}
-          >
-            <SoloBotBubble
-              isVisible={showBubble}
-              onClose={handleCloseBubble}
-              onClick={handleBubbleClick}
-              placement={bubblePlacement}
-            />
-          </div>
-
           {/* Animated Draggable Mascot */}
           <div className="pointer-events-auto">
             <SoloBotRobot
               state={robotState}
-              isChatOpen={isChatOpen}
               isGrabbed={isGrabbed}
               isDragging={isDragging}
               isLanding={isLanding}

@@ -107,7 +107,7 @@ export const SoloBotRobot: React.FC<SoloBotRobotProps> = ({
       onPointerCancel={onPointerUp}
       role="button"
       tabIndex={0}
-      aria-label="Solo Bot Animated Assistant - Drag me or Click to chat"
+      aria-label="Solo Bot Animated Assistant - Drag me anywhere or Click to interact"
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -271,7 +271,17 @@ export const SoloBotRobot: React.FC<SoloBotRobotProps> = ({
             {/* Status / Model Mini Badge */}
             <div className="w-full flex items-center justify-between px-1.5 pt-0.5">
               <span className="text-[7px] font-mono font-bold tracking-widest text-purple-400/90 uppercase">
-                {isDragging ? "DRAGGING" : followMode ? "COMPANION" : "SOLO·AI"}
+                {isDragging
+                  ? "DRAGGING"
+                  : followMode
+                  ? "COMPANION"
+                  : state === "clicked"
+                  ? "HAPPY ^_^"
+                  : state === "speaking"
+                  ? "CHIRP ♫"
+                  : state === "thinking"
+                  ? "THINKING"
+                  : "SOLO·BOT"}
               </span>
               <motion.div
                 animate={{
@@ -534,10 +544,10 @@ export const SoloBotRobot: React.FC<SoloBotRobotProps> = ({
       )}
 
       {/* Hover Pulse Tooltip / Status hint */}
-      {!isChatOpen && !isDragging && (
+      {!isDragging && (
         <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
           <span className="text-[9px] font-mono font-bold tracking-wider uppercase text-purple-300 bg-black/85 px-2 py-0.5 rounded-full border border-purple-500/40 shadow-[0_0_8px_rgba(168,85,247,0.5)]">
-            Drag · Click to Chat
+            Drag · Click to interact
           </span>
         </div>
       )}

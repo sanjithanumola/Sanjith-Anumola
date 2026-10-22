@@ -236,6 +236,22 @@ export default function App() {
       color: "bg-[#FF3E81]",
       description: "A professional color palette and gradient studio to generate harmonious palettes, craft custom gradients, verify WCAG contrast, and export production-ready CSS.",
       category: "apps"
+    },
+    {
+      name: "Maze Shift",
+      link: "https://maze-shift.vercel.app/",
+      github: "https://github.com/sanjithanumola/maze-shift",
+      color: "bg-[#00CEC9]",
+      description: "An interactive maze creation and puzzle game where players can build, customize, navigate, and solve dynamic shifting labyrinths.",
+      category: "games"
+    },
+    {
+      name: "BioScope",
+      link: "https://bio-scope-beige.vercel.app/",
+      github: "https://github.com/sanjithanumola/bio-scope",
+      color: "bg-[#10B981]",
+      description: "An interactive bio profiling and showcase platform to explore, visualize, and share rich personal bios, portfolios, and creative highlights.",
+      category: "apps"
     }
   ];
 
@@ -267,6 +283,18 @@ export default function App() {
               13-Year-Old Web Developer | <br />
               <span className="text-[#1A1A1A]">Building the Future from Hyderabad</span>
             </h2>
+
+            <div className="flex flex-wrap items-center gap-3 mt-1">
+              <div className="inline-flex items-center gap-2 bg-[#FFD600] border-3 border-black px-3.5 py-1.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-[3px_3px_0_0_#000]">
+                <span>🚀</span> {projects.length}+ Live Projects Built
+              </div>
+              <div className="inline-flex items-center gap-2 bg-[#00E5FF] border-3 border-black px-3.5 py-1.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-[3px_3px_0_0_#000]">
+                <span>⚡</span> Full-Stack & AI
+              </div>
+              <div className="inline-flex items-center gap-2 bg-[#05C46B] text-white border-3 border-black px-3.5 py-1.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-[3px_3px_0_0_#000]">
+                <span>✨</span> Interactive Mascots & Games
+              </div>
+            </div>
           </motion.header>
 
           <motion.section 
@@ -279,7 +307,7 @@ export default function App() {
           >
             <div className="bg-white border-4 border-black p-8 rounded-[2rem] shadow-[10px_10px_0_0_#000]">
               <p className="text-2xl md:text-3xl font-medium leading-relaxed italic opacity-90">
-                "Hey! I'm <span className="font-black text-[#FF3E81]">Sanjith Anumola</span>, a 13-year-old tech enthusiast based in Hyderabad. I don't just browse the web—I build it. I spend my time learning code and turning ideas into functional, clean websites."
+                "Hey! I'm <span className="font-black text-[#FF3E81]">Sanjith Anumola</span>, a 13-year-old tech enthusiast based in Hyderabad. I don't just browse the web—I build it. With <span className="font-black text-[#00C2FF] underline decoration-4 decoration-black underline-offset-4">over {projects.length} projects built</span>, I spend my time learning code and turning ambitious ideas into functional, clean web applications."
               </p>
             </div>
           </motion.section>
@@ -293,11 +321,14 @@ export default function App() {
           >
             {/* Header with Title & Divider */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 flex-wrap">
                 <span className="w-4.5 h-4.5 bg-[#FF3E81] rounded-full border-2 border-black"></span>
                 <h3 className="text-2xl font-black uppercase tracking-tight">
                   My Creations
                 </h3>
+                <span className="bg-[#00E676] text-black font-black text-xs uppercase px-3 py-1 rounded-full border-2 border-black shadow-[2px_2px_0_0_#000]">
+                  {projects.length}+ Live Projects Built
+                </span>
               </div>
               <div className="h-[4px] flex-grow bg-black rounded-full hidden sm:block"></div>
             </div>
@@ -438,6 +469,17 @@ export default function App() {
               
               <div className="p-6 bg-white">
                 <div className="flex flex-col gap-4">
+                  <div className="bg-[#00E5FF] border-4 border-black p-4 rounded-2xl shadow-[4px_4px_0_0_#000]">
+                    <h3 className="text-xs uppercase tracking-widest font-black mb-1 text-black/75">Portfolio Milestone</h3>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2.5">
+                        <div className="text-2xl">🔥</div>
+                        <span className="font-black uppercase tracking-tight text-sm sm:text-base">{projects.length}+ Projects Built</span>
+                      </div>
+                      <span className="bg-black text-[#00E5FF] text-[10px] font-black px-2 py-0.5 rounded-md uppercase">Live</span>
+                    </div>
+                  </div>
+
                   <div className="bg-[#FFD600] border-4 border-black p-4 rounded-2xl shadow-[4px_4px_0_0_#000]">
                     <h3 className="text-xs uppercase tracking-widest font-black mb-2 text-[#7C3AED]">Current Status</h3>
                     <div className="flex items-center gap-3">
@@ -635,7 +677,7 @@ export default function App() {
         <div className="flex animate-marquee-slower whitespace-nowrap">
           {[...Array(10)].map((_, i) => (
             <span key={i} className="text-white font-black text-sm uppercase mx-12">
-              SANJITH ANUMOLA ★ BUILDING THE FUTURE ★ HYDERABAD ★ INDIA ★ 13-YEAR-OLD DEV ★
+              SANJITH ANUMOLA ★ {projects.length}+ PROJECTS BUILT ★ HYDERABAD ★ INDIA ★ 13-YEAR-OLD DEV ★ BUILDING THE FUTURE ★
             </span>
           ))}
         </div>
