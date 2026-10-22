@@ -7,7 +7,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Instagram, MapPin, Code2, Rocket, ExternalLink, Mail, 
-  Github, Phone, Bot, AtSign, MessageSquare, Flame, Copy, Check, X 
+  Github, Phone, Bot, AtSign, Flame, Copy, Check, X 
 } from "lucide-react";
 import { SoloBotWidget } from "./components/SoloBot/SoloBotWidget";
 
@@ -537,29 +537,12 @@ export default function App() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <a 
-                        href="https://discord.gg/hgmfNbKEt" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:rotate-1 transition-transform"
-                      >
-                        <MessageSquare className="w-4 h-4 text-[#5865F2]" />
-                        <span className="font-bold text-xs uppercase">Discord</span>
-                      </a>
-
-                      <a 
                         href="tel:+919381259371" 
                         className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:-rotate-1 transition-transform"
                       >
                         <Phone className="w-4 h-4 text-[#00E676]" />
                         <span className="font-bold text-xs uppercase">Call Me</span>
                       </a>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black">
-                        <MapPin className="w-4 h-4 text-[#00C2FF]" />
-                        <span className="font-bold text-xs uppercase">Hyderabad</span>
-                      </div>
 
                       <button 
                         onClick={() => {
@@ -567,11 +550,16 @@ export default function App() {
                           handleCopyEmail();
                         }}
                         title="Click to copy email address"
-                        className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:-rotate-1 transition-transform overflow-hidden text-left cursor-pointer"
+                        className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black hover:rotate-1 transition-transform overflow-hidden text-left cursor-pointer"
                       >
                         <Mail className="w-4 h-4 flex-shrink-0 text-[#7C3AED]" />
                         <span className="font-bold text-xs truncate">Email</span>
                       </button>
+                    </div>
+
+                    <div className="flex items-center gap-2 bg-white text-black p-2 rounded-xl border-2 border-black">
+                      <MapPin className="w-4 h-4 text-[#00C2FF]" />
+                      <span className="font-bold text-xs uppercase">Hyderabad, India</span>
                     </div>
                   </div>
                 </div>
