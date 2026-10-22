@@ -5,14 +5,14 @@ import { BubblePlacement } from "./useRobotPhysics";
 
 export const ROBOT_MESSAGES = [
   "Hey! Welcome to my corner of the internet 👋",
-  "Check out 28+ live projects built by Sanjith!",
-  "Drag me anywhere on screen — I've got real physics!",
-  "Click the sparkles icon to toggle Follow-Me mode ✨",
+  "Check out 29+ live projects built by Sanjith!",
+  "Move your cursor and I'll fly along with you! 🛸",
+  "Watch my eyes and head track your cursor wherever you go 👀",
+  "Drag me anywhere on screen — or toss me for a bouncy safe landing!",
   "From AI tools to multiplayer games, Sanjith builds it all ⚡",
-  "Toss me across the screen and watch my safe landing bounce!",
   "13-year-old developer building the future from Hyderabad 🇮🇳",
-  "Explore Maze Shift, ColorCraft, FontForge & more below!",
-  "Click me anytime to see what else I have to say!",
+  "Explore Maze Shift, BioScope, ColorCraft, FontForge & more below!",
+  "Click or tap me anytime to watch me leap and dash across the screen! ⚡",
 ];
 
 interface SoloBotBubbleProps {
