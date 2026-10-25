@@ -252,6 +252,14 @@ export default function App() {
       color: "bg-[#10B981]",
       description: "An interactive bio profiling and showcase platform to explore, visualize, and share rich personal bios, portfolios, and creative highlights.",
       category: "apps"
+    },
+    {
+      name: "Sound Space",
+      link: "https://sound-space-six.vercel.app/",
+      github: "https://github.com/sanjithanumola/sound-space",
+      color: "bg-[#4834D4]",
+      description: "An immersive spatial audio visualizer and interactive soundscape studio exploring generative frequencies, ambient audio synthesis, and reactive 3D soundscapes.",
+      category: "apps"
     }
   ];
 
