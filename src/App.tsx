@@ -260,6 +260,14 @@ export default function App() {
       color: "bg-[#4834D4]",
       description: "An immersive spatial audio visualizer and interactive soundscape studio exploring generative frequencies, ambient audio synthesis, and reactive 3D soundscapes.",
       category: "apps"
+    },
+    {
+      name: "Motion Lab",
+      link: "https://motion-lab-sigma-ivory.vercel.app",
+      github: "https://github.com/sanjithanumola/motion-lab",
+      color: "bg-[#FD79A8]",
+      description: "An interactive motion design playground and animation physics laboratory exploring dynamic spring simulations, easing curves, kinetic particles, and fluid interactions.",
+      category: "apps"
     }
   ];
 

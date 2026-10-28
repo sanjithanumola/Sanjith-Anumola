@@ -660,7 +660,7 @@ export const SoloBotRobot: React.FC<SoloBotRobotProps> = ({
       {/* Subtle Hint on Hover (clean, non-intrusive) */}
       <div className="text-center mt-1 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200">
         <span className="text-[8px] font-mono tracking-wider text-purple-300/80 uppercase bg-black/60 px-2 py-0.5 rounded-full border border-purple-500/30">
-          Click to Dash · Follows Cursor · Drag me
+          Drag & Toss · Click to Leap
         </span>
       </div>
     </div>

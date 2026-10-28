@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { Sparkles } from "lucide-react";
 import { SoloBotRobot, CharacterExpression } from "./SoloBotRobot";
 import { useRobotPhysics } from "./useRobotPhysics";
 
@@ -126,7 +127,7 @@ export const SoloBotWidget: React.FC = () => {
     }, 1200);
   }, []);
 
-  // Connect physics, dragging, safe landing, following, click-dash and spring-to-home return
+  // Connect physics, dragging, safe landing, following, click-dash, and Follow Me toggle
   const {
     position,
     isInitialized,
@@ -136,6 +137,7 @@ export const SoloBotWidget: React.FC = () => {
     isLanding,
     isFollowing,
     isDashing,
+    isFollowEnabled,
     tiltAngle,
     stretchScale,
     eyeTrackOffset,
@@ -146,6 +148,7 @@ export const SoloBotWidget: React.FC = () => {
     handlePointerMove,
     handlePointerUp,
     triggerClickMove,
+    toggleFollowMode,
   } = useRobotPhysics({
     robotWidth: 110,
     robotHeight: 110,
@@ -153,6 +156,20 @@ export const SoloBotWidget: React.FC = () => {
     onTap: handleRobotClick,
     onLand: handleLand,
   });
+
+  // Sound and expression feedback on toggling "Follow Me"
+  const handleToggleFollow = useCallback(() => {
+    if (!isFollowEnabled) {
+      playRobotSound("chirp");
+      setExpression("happy");
+      setTimeout(() => setExpression("idle"), 1400);
+    } else {
+      playRobotSound("land");
+      setExpression("landing");
+      setTimeout(() => setExpression("idle"), 1200);
+    }
+    toggleFollowMode();
+  }, [isFollowEnabled, toggleFollowMode]);
 
   // Sound effect when spring return starts
   useEffect(() => {
@@ -175,10 +192,48 @@ export const SoloBotWidget: React.FC = () => {
             zIndex: 60, // Above marquee footer (z-50) so it's always visible and unclipped
             willChange: "transform",
           }}
-          className="pointer-events-none select-none"
+          className="pointer-events-none select-none flex flex-col items-center"
         >
-          {/* Animated Draggable & Click-to-Move Mascot */}
-          <div className="pointer-events-auto">
+          {/* Animated Draggable Mascot with Follow Me Button Above */}
+          <div className="pointer-events-auto flex flex-col items-center">
+            {/* "Follow Me" Button (Placed Above Solo Bot) */}
+            <div className="mb-2 flex items-center justify-center z-20">
+              <button
+                type="button"
+                onPointerDown={(e) => e.stopPropagation()}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleToggleFollow();
+                }}
+                className={`group flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-mono font-black uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-[3px_3px_0_0_#000] border-2 border-black active:translate-x-0.5 active:translate-y-0.5 select-none ${
+                  isFollowEnabled
+                    ? "bg-[#00FF66] text-black shadow-[0_0_14px_rgba(0,255,102,0.7),3px_3px_0_0_#000] hover:bg-[#10B981]"
+                    : "bg-[#7C3AED] hover:bg-[#6D28D9] text-white shadow-[3px_3px_0_0_#000]"
+                }`}
+                title={
+                  isFollowEnabled
+                    ? "Click to stop following"
+                    : "Click to make SoloBot follow your cursor"
+                }
+                aria-label={isFollowEnabled ? "Stop following" : "Follow Me"}
+              >
+                {isFollowEnabled ? (
+                  <>
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-black" />
+                    </span>
+                    <span>Following</span>
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="w-3.5 h-3.5 text-[#00FF66]" />
+                    <span>Follow Me</span>
+                  </>
+                )}
+              </button>
+            </div>
+
             <SoloBotRobot
               expression={expression}
               isGrabbed={isGrabbed}

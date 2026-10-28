@@ -38,6 +38,8 @@ export function useRobotPhysics({
   const [isLanding, setIsLanding] = useState(false);
   const [isFollowing, setIsFollowing] = useState(false);
   const [isDashing, setIsDashing] = useState(false);
+  const [isFollowEnabled, setIsFollowEnabled] = useState(false);
+  const isFollowEnabledRef = useRef(false);
 
   // Dynamic visual feedback values
   const [tiltAngle, setTiltAngle] = useState(0);
@@ -73,7 +75,7 @@ export function useRobotPhysics({
     if (typeof window === "undefined") return { minX: 16, maxX: 400, minY: 16, maxY: 600 };
     const minX = safeMargin;
     const maxX = Math.max(minX, window.innerWidth - robotWidth - safeMargin);
-    const minY = safeMargin;
+    const minY = safeMargin + 28;
     // Keep safely above bottom nav/footer marquee on screens >= 768px
     const bottomNavReserve = window.innerWidth >= 768 ? 58 : 20;
     const maxY = Math.max(minY, window.innerHeight - robotHeight - bottomNavReserve);
@@ -233,6 +235,52 @@ export function useRobotPhysics({
     onTap?.();
   }, [getBounds, onTap]);
 
+  // Toggle follow mode: explicitly enabled when user clicks "Follow Me"
+  const toggleFollowMode = useCallback((forced?: boolean) => {
+    setIsFollowEnabled((prev) => {
+      const next = typeof forced === "boolean" ? forced : !prev;
+      isFollowEnabledRef.current = next;
+
+      if (!next) {
+        // Turning off follow mode: glide smoothly back to home dock
+        isSpringReturningRef.current = true;
+        setIsSpringingHome(true);
+      } else {
+        // Turning on follow mode: activate follower targeting
+        hasUserMovedPointerRef.current = true;
+        lastPointerMoveTimeRef.current = performance.now();
+        isCursorInsideWindowRef.current = true;
+
+        if (lastCursorPosRef.current) {
+          followTargetRef.current = computeFollowTarget(
+            lastCursorPosRef.current.x,
+            lastCursorPosRef.current.y
+          );
+        } else if (typeof window !== "undefined") {
+          followTargetRef.current = computeFollowTarget(
+            window.innerWidth * 0.5,
+            window.innerHeight * 0.5
+          );
+        }
+
+        // Friendly lift-off boost towards cursor
+        const current = positionRef.current;
+        const dx = followTargetRef.current.x - current.x;
+        const dy = followTargetRef.current.y - current.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist > 30) {
+          velocityRef.current = {
+            vx: (dx / dist) * 12,
+            vy: (dy / dist) * 12 - 6,
+          };
+          isSpringReturningRef.current = true;
+        }
+      }
+
+      return next;
+    });
+  }, [computeFollowTarget]);
+
   // Unified 60fps Physics & Follower Engine Loop
   useEffect(() => {
     if (!isInitialized || typeof window === "undefined") return;
@@ -253,7 +301,9 @@ export function useRobotPhysics({
       const pos = positionRef.current;
       const timeSinceMove = now - lastPointerMoveTimeRef.current;
 
+      // Follow cursor only when follow mode is enabled!
       const shouldFollow =
+        isFollowEnabledRef.current &&
         hasUserMovedPointerRef.current &&
         isCursorInsideWindowRef.current &&
         timeSinceMove < 8500;
@@ -415,8 +465,9 @@ export function useRobotPhysics({
       lastPointerMoveTimeRef.current = performance.now();
     };
 
-    // When clicking on page background (not on buttons/links), robot dashes toward click location
+    // When clicking on page background (not on buttons/links), robot dashes toward click location if follow mode is active
     const onDocumentClick = (e: MouseEvent) => {
+      if (!isFollowEnabledRef.current) return;
       const target = e.target as HTMLElement | null;
       if (!target) return;
       if (target.closest("a, button, input, textarea, select, [role='button']")) {
@@ -623,6 +674,7 @@ export function useRobotPhysics({
     isLanding,
     isFollowing,
     isDashing,
+    isFollowEnabled,
     tiltAngle,
     stretchScale,
     eyeTrackOffset,
@@ -633,5 +685,7 @@ export function useRobotPhysics({
     handlePointerMove,
     handlePointerUp,
     triggerClickMove,
+    toggleFollowMode,
+    setIsFollowEnabled,
   };
 }
