@@ -5,13 +5,13 @@ import { BubblePlacement } from "./useRobotPhysics";
 
 export const ROBOT_MESSAGES = [
   "Hey! Welcome to my corner of the internet 👋",
-  "Check out 31+ live projects built by Sanjith!",
+  "Check out 32+ live projects built by Sanjith!",
   "Click 'Follow Me' and I'll fly along with your cursor! 🚀",
   "Watch my eyes and head track your cursor wherever you go 👀",
-  "Drag me anywhere on screen — or toss me for a bouncy safe landing!",
+  "Drag and place me anywhere on screen — watch my bouncy landing!",
   "From AI tools to multiplayer games, Sanjith builds it all ⚡",
   "13-year-old developer building the future from Hyderabad 🇮🇳",
-  "Explore Motion Lab, Sound Space, BioScope, Maze Shift & more below!",
+  "Explore Physics Playground, Motion Lab, Sound Space & more below!",
   "Click or tap me anytime to watch me leap and dash across the screen! ⚡",
 ];
 

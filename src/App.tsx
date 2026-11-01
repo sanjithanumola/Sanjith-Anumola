@@ -268,6 +268,14 @@ export default function App() {
       color: "bg-[#FD79A8]",
       description: "An interactive motion design playground and animation physics laboratory exploring dynamic spring simulations, easing curves, kinetic particles, and fluid interactions.",
       category: "apps"
+    },
+    {
+      name: "Physics Playground",
+      link: "https://physics-playground-wine.vercel.app",
+      github: "https://github.com/sanjithanumola/physics-playground",
+      color: "bg-[#00CEC9]",
+      description: "An interactive visual sandbox exploring dynamic physics simulations, gravity mechanics, elastic collisions, and organic particle motion.",
+      category: "games"
     }
   ];
 

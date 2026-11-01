@@ -125,11 +125,15 @@ export function useRobotPhysics({
     setIsInitialized(true);
   }, [computeHomePosition]);
 
-  // Window resize & orientation change handler
+  // Window resize & orientation change handler: clamps placed position safely
   useEffect(() => {
     const handleResize = () => {
-      const home = computeHomePosition();
-      homePositionRef.current = home;
+      const bounds = getBounds();
+      // Keep whatever resting or placed position the user chose, safely clamped
+      const currentHome = homePositionRef.current;
+      const clampedHomeX = Math.min(Math.max(bounds.minX, currentHome.x), bounds.maxX);
+      const clampedHomeY = Math.min(Math.max(bounds.minY, currentHome.y), bounds.maxY);
+      homePositionRef.current = { x: clampedHomeX, y: clampedHomeY };
 
       if (lastCursorPosRef.current && hasUserMovedPointerRef.current) {
         followTargetRef.current = computeFollowTarget(
@@ -137,14 +141,15 @@ export function useRobotPhysics({
           lastCursorPosRef.current.y
         );
       } else {
-        followTargetRef.current = home;
+        followTargetRef.current = { x: clampedHomeX, y: clampedHomeY };
       }
 
-      const bounds = getBounds();
-      const clampedX = Math.min(Math.max(bounds.minX, positionRef.current.x), bounds.maxX);
-      const clampedY = Math.min(Math.max(bounds.minY, positionRef.current.y), bounds.maxY);
-      positionRef.current = { x: clampedX, y: clampedY };
-      setPosition({ x: clampedX, y: clampedY });
+      if (!isDraggingRef.current) {
+        const clampedX = Math.min(Math.max(bounds.minX, positionRef.current.x), bounds.maxX);
+        const clampedY = Math.min(Math.max(bounds.minY, positionRef.current.y), bounds.maxY);
+        positionRef.current = { x: clampedX, y: clampedY };
+        setPosition({ x: clampedX, y: clampedY });
+      }
     };
 
     window.addEventListener("resize", handleResize);
@@ -153,7 +158,7 @@ export function useRobotPhysics({
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("orientationchange", handleResize);
     };
-  }, [computeHomePosition, computeFollowTarget, getBounds]);
+  }, [computeFollowTarget, getBounds]);
 
   // Landing squash-and-rebound safe landing effect
   const triggerLanding = useCallback(() => {
@@ -214,6 +219,7 @@ export function useRobotPhysics({
     const clampedTargetY = Math.min(Math.max(bounds.minY, targetY), bounds.maxY);
 
     followTargetRef.current = { x: clampedTargetX, y: clampedTargetY };
+    homePositionRef.current = { x: clampedTargetX, y: clampedTargetY };
 
     // Inject strong dynamic impulse: upward rocket arc + lateral dash
     const dx = clampedTargetX - current.x;
@@ -631,37 +637,35 @@ export function useRobotPhysics({
         return;
       }
 
-      // Drag ended: release with momentum
+      // Drag ended: Place the robot directly at this location!
       setIsDragging(false);
       isDraggingRef.current = false;
 
-      const history = pointerHistoryRef.current;
-      let releaseVx = 0;
-      let releaseVy = 0;
+      const bounds = getBounds();
+      const currentPos = positionRef.current;
+      const placedX = Math.min(Math.max(bounds.minX, currentPos.x), bounds.maxX);
+      const placedY = Math.min(Math.max(bounds.minY, currentPos.y), bounds.maxY);
 
-      if (history.length >= 2) {
-        const oldest = history[0];
-        const newest = history[history.length - 1];
-        const dt = Math.max(1, newest.time - oldest.time);
-        releaseVx = ((newest.x - oldest.x) / dt) * 16.6;
-        releaseVy = ((newest.y - oldest.y) / dt) * 16.6;
+      // Save as the robot's placed resting position
+      homePositionRef.current = { x: placedX, y: placedY };
+      positionRef.current = { x: placedX, y: placedY };
+      setPosition({ x: placedX, y: placedY });
+
+      velocityRef.current = { vx: 0, vy: 0 };
+      isSpringReturningRef.current = false;
+      setIsSpringingHome(false);
+      setIsDashing(false);
+
+      // If follow mode was active, turn it off so it stays placed where dropped
+      if (isFollowEnabledRef.current) {
+        setIsFollowEnabled(false);
+        isFollowEnabledRef.current = false;
       }
 
-      // Clamp max release flick velocity
-      const maxSpeed = 30;
-      const speed = Math.hypot(releaseVx, releaseVy);
-      if (speed > maxSpeed) {
-        const ratio = maxSpeed / speed;
-        releaseVx *= ratio;
-        releaseVy *= ratio;
-      }
-
-      velocityRef.current = { vx: releaseVx * 0.7, vy: releaseVy * 0.7 };
-      isSpringReturningRef.current = true;
-      setIsSpringingHome(true);
-      lastPointerMoveTimeRef.current = performance.now();
+      // Safe landing bounce & squish right at the placed position
+      triggerLanding();
     },
-    [triggerClickMove]
+    [triggerClickMove, getBounds, triggerLanding]
   );
 
   return {
